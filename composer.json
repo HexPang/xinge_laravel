@@ -11,5 +11,10 @@
             "name": "hexpang",
             "email": "hexpang@live.com"
         }
-    ]
+    ],
+    "autoload": {
+      "psr-4": {
+        "hexpang\\": "./src/hexpang"
+      }
+    }
 }
