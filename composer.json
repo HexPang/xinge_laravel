@@ -1,0 +1,15 @@
+{
+    "name": "hexpang/xinge_laravel",
+    "description": "Tencent XPush For Laravel",
+    "type": "library",
+    "require": {
+        "php": "*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "hexpang",
+            "email": "hexpang@live.com"
+        }
+    ]
+}
