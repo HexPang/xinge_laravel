@@ -4,6 +4,8 @@ namespace hexpang\tencent;
  * Copyright ? 1998 - 2014 Tencent. All Rights Reserved. 腾讯公司 版权所有
  */
 
+use Exception;
+
 class XingeApp
 {
 
@@ -912,7 +914,6 @@ class Message
             $ret['vibrate'] = $this->m_style->getVibrate();
             $ret['clearable'] = $this->m_style->getClearable();
             $ret['n_id'] = $this->m_style->getNId();
-
             if (!is_null($this->m_style->getRingRaw())) {
                 $ret['ring_raw'] = $this->m_style->getRingRaw();
             }
@@ -1637,7 +1638,7 @@ class RequestBase
             CURLOPT_URL => $url,  //请求url
             CURLOPT_HEADER => false,  //不输出头信息
             CURLOPT_RETURNTRANSFER => true, //不输出返回数据
-            CURLOPT_CONNECTTIMEOUT => 3 // 连接超时时间
+            CURLOPT_CONNECTTIMEOUT => 5 // 连接超时时间
         );
 
         //配置post请求额外需要的配置项
@@ -1665,7 +1666,7 @@ class RequestBase
                 throw new Exception('CURL ERROR: ' . curl_error($curl_handle));
             }
         } catch (Exception $e) {
-            echo $e->getMessage();
+            throw $e;
         }
         curl_close($curl_handle);
 
